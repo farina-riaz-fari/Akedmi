@@ -133,12 +133,9 @@ const Home = () => {
 
 
     return (
-        <div className="flex w-full">
-            <div className="w-[15%] lg:w-[24%] xl:w-[20%]">
-                <Sidebar />
-            </div>
-            <div className="w-[65%] bg-[#F3F4FF] pt-8 px-10 md:px-6 lg:px-10">
-                <div className="flex flex-col sm:flex-row md:flex justify-between items-center w-full sm:gap-4">
+        <div className="flex w-full h-screen">
+            <div className="h-full bg-[#F3F4FF] overflow-y-auto pt-8 px-10 md:px-6 lg:px-10">
+                <div className="flex flex-col sm:flex-row md:flex justify-between items-center w-full sm:gap-4 pt-6">
                     <Navbar title={"Dashboard"} />
                     <Searchbar />
                 </div>

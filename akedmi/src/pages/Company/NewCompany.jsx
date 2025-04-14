@@ -4,6 +4,7 @@ import ProfileGroup from "../../components/ProfileGroup";
 import Sidebar from "../../components/Sidebar";
 import { useContext, useState } from "react";
 import { CompanyContext } from "../../store/CompanyContext";
+import React from "react";
 
 const NewCompany = () => {
     const navigate = useNavigate();
@@ -111,14 +112,11 @@ const NewCompany = () => {
     };
 
     return (
-        <div className="flex w-full">
-            <div className="w-[15%] lg:w-[20%]">
-                <Sidebar />
-            </div>
+        <div className="flex w-full h-screen bg-[#F3F4FF]">
             <div className="flex-1 bg-[#F3F4FF] pt-8 px-4 md:px-6 lg:px-10">
                 <div className="flex flex-row justify-between items-center w-full gap-4">
                     <div className="w-auto">
-                        <Navbar title={companyData ? "Edit Company" : "Add New Company"} />
+                        <Navbar title={companyData ? "Edit Company Data" : "Add New Company"} />
                     </div>
                     <div className="w-auto flex justify-end">
                         <ProfileGroup gap="gap-10" />
@@ -132,7 +130,7 @@ const NewCompany = () => {
                             Company Basic Information
                         </div>
                         <div className="w-full rounded-b-xl py-4 px-6 bg-white gap-10">
-                            <div className="flex flex-nowrap p-4 gap-4">
+                            <div className="flex flex-col lg:flex-row p-4 gap-4">
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">ID *</div>
@@ -186,7 +184,7 @@ const NewCompany = () => {
                             Contact Information
                         </div>
                         <div className="w-full rounded-b-xl py-4 px-6 bg-white gap-10">
-                            <div className="flex flex-nowrap p-4 gap-4">
+                            <div className="flex flex-col lg:flex-row p-4 gap-4">
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Email *</div>
@@ -234,7 +232,7 @@ const NewCompany = () => {
                             Financial Information
                         </div>
                         <div className="w-full rounded-b-xl py-4 px-6 bg-white gap-10">
-                            <div className="flex flex-nowrap p-4 gap-4">
+                            <div className="flex flex-col lg:flex-row p-4 gap-4">
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Tax ID *</div>
@@ -256,7 +254,7 @@ const NewCompany = () => {
                             Operational Details
                         </div>
                         <div className="w-full rounded-b-xl py-4 px-6 bg-white gap-10">
-                            <div className="flex flex-nowrap p-4 gap-4">
+                            <div className="flex flex-col lg:flex-row p-4 gap-4">
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Status *</div>
@@ -350,7 +348,7 @@ const NewCompany = () => {
                             Ownership & Compliance
                         </div>
                         <div className="w-full rounded-b-xl py-4 px-6 bg-white gap-10">
-                            <div className="flex flex-nowrap p-4 gap-4">
+                            <div className="flex flex-col lg:flex-row p-4 gap-4">
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Owner ID *</div>
@@ -452,7 +450,7 @@ const NewCompany = () => {
                             Timestamps
                         </div>
                         <div className="w-full rounded-b-xl py-4 px-6 bg-white gap-10">
-                            <div className="flex flex-nowrap p-4 gap-4">
+                            <div className="flex flex-col lg:flex-row p-4 gap-4">
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Created At *</div>

@@ -50,10 +50,7 @@ const Company = () => {
 
     return (
         <div className="flex w-full h-screen">
-            <div className="w-[15%] lg:w-[20%]">
-                <Sidebar />
-            </div>
-            <div className="flex-1 bg-[#F3F4FF] pt-8 px-4 md:px-6 lg:px-10">
+            <div className="flex-1 bg-[#F3F4FF]  pt-8 px-4 md:px-6 lg:px-10">
                 <div className="flex flex-row justify-between items-center w-full gap-4">
                     <div className="w-auto">
                         <Navbar title="Company" />

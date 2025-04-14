@@ -2,7 +2,7 @@
 
 const Employee = () => {
     return (
-        <div className="bg-white flex justify-center">
+        <div className="flex w-full h-screen">
             Employee
         </div>
     )

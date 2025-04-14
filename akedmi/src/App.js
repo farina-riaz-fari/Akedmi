@@ -11,24 +11,30 @@ import Users from './pages/Users';
 import Project from './pages/Project';
 import NewCompany from './pages/Company/NewCompany';
 import { CompanyProvider } from './store/CompanyContext';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <CompanyProvider>
       <Router>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/company" element={<Company />} />
-            <Route path="/partner" element={<Partner />} />
-            <Route path="/payroll" element={<Payroll />} />
-            <Route path="/project" element={<Project />} />
-            <Route path="/employee" element={<Employee />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/chart" element={<ChartOfAccount />} />
-            <Route path="/inventory" element={<InventoryItem />} />
-            <Route path="/company/newCompany" element={<NewCompany />} />
-          </Routes>
+        <div className="flex">
+          <div>
+            <Sidebar />
+          </div>
+          <div className="overflow-y-auto h-screen w-full bg-[#F3F4FF]">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/company" element={<Company />} />
+              <Route path="/partner" element={<Partner />} />
+              <Route path="/payroll" element={<Payroll />} />
+              <Route path="/project" element={<Project />} />
+              <Route path="/employee" element={<Employee />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/chart" element={<ChartOfAccount />} />
+              <Route path="/inventory" element={<InventoryItem />} />
+              <Route path="/company/newCompany" element={<NewCompany />} />
+            </Routes>
+          </div>
         </div>
       </Router>
     </CompanyProvider>

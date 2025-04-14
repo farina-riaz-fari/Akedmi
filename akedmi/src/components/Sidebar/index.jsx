@@ -34,74 +34,73 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <div className="bg-[#4D44B5] flex justify-center pt-8 pb-8 h-full">
-            <div className="lg:hidden p-4" onClick={toggleSidebar}>
+        <div className="bg-[#4D44B5] h-full w-[300px] md:w-fit">
+            <div className="lg:hidden p-4 md:p-2 sss:p-0" onClick={toggleSidebar}>
                 <button className="text-white">
-                    <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-8 h-8 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
-            <aside className="lg:flex hidden flex-col items-center w-full transition-all duration-300">
+
+            {/* Desktop Sidebar */}
+            <aside className="hidden lg:flex flex-col items-center h-full w-full pt-8 pb-8">
                 <div className="flex gap-4 justify-center items-center px-6">
                     <div className="bg-[#FB7D5B] px-2.5 pb-[2px] flex justify-center items-center rounded-2xl">
-                        <span className="text-white font-bold text-3xl lg:text-2xl xl:text-3xl">A</span>
+                        <span className="text-white font-bold text-2xl xl:text-3xl">A</span>
                     </div>
-                    <span className="text-white text-3xl lg:text-2xl xl:text-3xl font-bold">Akademi</span>
+                    <span className="text-white text-2xl xl:text-3xl font-bold">Akademi</span>
                 </div>
 
-                <div className="flex justify-center items-center pt-6 pb-6 w-full">
-                    <ul className="space-y-2 font-medium w-full">
-                        {menuItems.map(({ to, label, icon }) => (
-                            <li
-                                key={to}
-                                className={`ml-4 lg:ml-4 xl:ml-12 3xl:ml-24 4xl:ml-40 rounded-tl-full rounded-bl-full ${isActiveTab(to) ? "bg-white text-[#4D44B5]" : "hover:bg-white hover:text-[#4D44B5]"
-                                    }`}
-                            >
-                                <Link to={to} className="flex items-center p-3 pl-4 text-[#C1BBEB] group w-full">
-                                    <span className={`text-[24px] lg:text-[20px] xl:text-[28px] ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
-                                        {icon}
-                                    </span>
-                                    <span className={`ms-3 text-lg lg:text-sm xl:text-base font-medium ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
-                                        {label}
-                                    </span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <ul className="space-y-2 font-medium w-full pt-6 ml-[30%] xl:ml-[50%] 4xl:ml-[70%]">
+                    {menuItems.map(({ to, label, icon }) => (
+                        <li
+                            key={to}
+                            className={`rounded-tl-full rounded-bl-full ${isActiveTab(to) ? "bg-white text-[#4D44B5]" : "hover:bg-white hover:text-[#4D44B5]"}`}
+                        >
+                            <Link to={to} className="flex items-center p-3 pl-4 text-[#C1BBEB] group w-full">
+                                <span className={`text-xl ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
+                                    {icon}
+                                </span>
+                                <span className={`ml-3 text-sm font-medium xl:text-lg 4xl:text-xl ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
+                                    {label}
+                                </span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
 
-                <div className="flex flex-col items-center py-20">
-                    <span className="font-bold text-[14px] text-white">Akademi - School Admission Dashboard</span>
-                    <span className="font-bold text-[14px] text-white">Made with ♥ by Peterdraw</span>
+                <div className="flex flex-col items-center mt-auto py-10 px-6 text-center">
+                    <span className="font-bold text-sm text-white">Akademi - School Admission Dashboard</span>
+                    <span className="font-bold text-sm text-white">Made with ♥ by Peterdraw</span>
                 </div>
             </aside>
 
+            {/* Mobile Sidebar */}
             <div
                 ref={sidebarRef}
-                className={`lg:hidden fixed top-0 left-0 md:w-[40%] xs:w-[80%] h-full bg-[#4D44B5] z-10 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                    } transition-transform duration-300 ease-in-out`}
+                className={`lg:hidden fixed top-0 left-0 w-[60%] h-full bg-[#4D44B5] z-20 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    } transition-transform duration-300 ease-in-out overflow-y-auto`}
             >
-                <aside className="flex flex-col items-center w-full transition-all duration-300 pt-16">
+                <aside className="flex flex-col items-center w-full pt-16 px-6">
                     <div className="flex gap-4 justify-center items-center pb-8">
                         <div className="bg-[#FB7D5B] px-2.5 pb-[2px] flex justify-center items-center rounded-2xl">
-                            <span className="text-white font-bold text-7xl md:text-5xl">A</span>
+                            <span className="text-white font-bold text-4xl">A</span>
                         </div>
-                        <span className="text-white text-7xl md:text-5xl font-bold">Akademi</span>
+                        <span className="text-white text-4xl font-bold">Akademi</span>
                     </div>
 
-                    <ul className="space-y-6 font-medium w-full">
+                    <ul className="space-y-4 font-medium w-full">
                         {menuItems.map(({ to, label, icon }) => (
                             <li
                                 key={to}
-                                className={`ml-64 ss:ml-36 sss:ml-24 xs:ml-72 md:ml-28 rounded-tl-full rounded-bl-full ${isActiveTab(to) ? "bg-white text-[#4D44B5]" : "hover:bg-white hover:text-[#4D44B5]"
-                                    }`}
+                                className={`rounded-tl-full rounded-bl-full ${isActiveTab(to) ? "bg-white text-[#4D44B5]" : "hover:bg-white hover:text-[#4D44B5]"}`}
                             >
                                 <Link to={to} className="flex items-center p-3 pl-4 text-[#C1BBEB] group w-full">
-                                    <span className={`text-5xl md:text-3xl ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
+                                    <span className={`text-2xl ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
                                         {icon}
                                     </span>
-                                    <span className={`ms-3 text-5xl md:text-3xl font-medium ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
+                                    <span className={`ml-3 text-lg font-medium ${isActiveTab(to) ? "text-[#4D44B5]" : "group-hover:text-[#4D44B5]"}`}>
                                         {label}
                                     </span>
                                 </Link>
@@ -109,9 +108,9 @@ const Sidebar = () => {
                         ))}
                     </ul>
 
-                    <div className="flex flex-col items-center py-20">
-                        <span className="font-bold text-[14px] text-white">Akademi - School Admission Dashboard</span>
-                        <span className="font-bold text-[14px] text-white">Made with ♥ by Peterdraw</span>
+                    <div className="flex flex-col items-center mt-auto py-10 text-center">
+                        <span className="font-bold text-sm text-white">Akademi - School Admission Dashboard</span>
+                        <span className="font-bold text-sm text-white">Made with ♥ by Peterdraw</span>
                     </div>
                 </aside>
             </div>
