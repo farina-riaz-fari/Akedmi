@@ -188,7 +188,16 @@ const NewCompany = () => {
                                 <div className=" basis-[50%] shrink-0 grow-0 px-6">
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Email *</div>
-                                        <input className="appearance-none border border-[#C1BBEB] rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                        <input
+                                            className="appearance-none border border-[#C1BBEB] rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 disabled:bg-gray-100 disabled:opacity-70 disabled:cursor-not-allowed"
+                                            id="inline-full-name"
+                                            type="text"
+                                            placeholder="Enter Email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                            disabled={companyData}
+                                        />
                                     </div>
                                     <div className="flex justify-start items-start flex-col pb-6">
                                         <div className="text-[#303972] font-[800] text-lg pb-4">Phone Number *</div>
