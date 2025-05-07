@@ -1,17 +1,17 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Company from './pages/Company';
-import ChartOfAccount from './pages/ChartOfAccount';
-import Employee from './pages/Employee';
-import InventoryItem from './pages/InventoryItem';
-import Partner from './pages/Partner';
-import Payroll from './pages/Payroll';
-import Users from './pages/Users';
-import Project from './pages/Project';
-import NewCompany from './pages/Company/NewCompany';
-import { CompanyProvider } from './store/CompanyContext';
-import Sidebar from './components/Sidebar';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Company from "./pages/Company";
+import ChartOfAccount from "./pages/ChartOfAccount";
+import Employee from "./pages/Employee";
+import InventoryItem from "./pages/InventoryItem";
+import Partner from "./pages/Partner";
+import Payroll from "./pages/Payroll";
+import Users from "./pages/Users";
+import Project from "./pages/Project";
+import NewCompany from "./pages/Company/NewCompany";
+import { CompanyProvider } from "./store/CompanyContext";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <div>
             <Sidebar />
           </div>
-          <div className="overflow-y-auto h-screen w-full bg-[#F3F4FF]">
+          <div className="flex-1 bg-[#F3F4FF] w-full overflow-y-auto h-screen">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/company" element={<Company />} />
@@ -32,7 +32,7 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path="/chart" element={<ChartOfAccount />} />
               <Route path="/inventory" element={<InventoryItem />} />
-              <Route path="/company/newCompany" element={<NewCompany />} />
+              <Route path="/addCompany" element={<NewCompany />} />
             </Routes>
           </div>
         </div>
