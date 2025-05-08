@@ -10,11 +10,11 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { AiOutlineProduct } from "react-icons/ai";
 import { IoMdHeart } from "react-icons/io";
 import { FiHome } from "react-icons/fi";
 import { FaUserGroup } from "react-icons/fa6";
-import { FaThLarge } from "react-icons/fa";
+import { BiSolidCategoryAlt } from "react-icons/bi";
+import { AiFillProduct } from "react-icons/ai";
 
 const sidebarItems = [
   { id: 1, icon: <FiHome />, label: "Dashboard", path: "/" },
@@ -25,11 +25,11 @@ const sidebarItems = [
   { id: 6, icon: <FaHandsHelping />, label: "Partner", path: "/partner" },
   {
     id: 7,
-    icon: <FaThLarge />,
+    icon: <BiSolidCategoryAlt />,
     label: "Product Category",
     path: "/product-category",
   },
-  { id: 8, icon: <AiOutlineProduct />, label: "Products", path: "/products" },
+  { id: 8, icon: <AiFillProduct />, label: "Products", path: "/products" },
   { id: 9, icon: <FaChartBar />, label: "Chart of Account", path: "/chart" },
   { id: 10, icon: <FaMoneyBillAlt />, label: "Payroll", path: "/payroll" },
 ];

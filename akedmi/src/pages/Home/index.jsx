@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FaBuilding, FaUser, FaTasks, FaHandsHelping } from "react-icons/fa";
+import React, { useContext, useState } from "react";
+import { FaBuilding, FaUser, FaHandsHelping } from "react-icons/fa";
 import { BsPrinter } from "react-icons/bs";
 import {
   Chart as ChartJS,
@@ -15,6 +15,11 @@ import { Line } from "react-chartjs-2";
 import ProfileSidebar from "../../components/ProfileSidebar";
 import Searchbar from "../../components/Searchbar";
 import { IoCaretBackOutline, IoCaretForwardOutline } from "react-icons/io5";
+import { CompanyContext } from "../../store/CompanyContext";
+import UserContext from "../../store/UserContext";
+import { PartnerContext } from "../../store/PartnerContext";
+import { EmployeeContext } from "../../store/EmployeeContext";
+import { FaUserGroup } from "react-icons/fa6";
 
 // Register Chart.js components
 ChartJS.register(
@@ -29,18 +34,6 @@ ChartJS.register(
 
 const ITEMS_PER_PAGE = 5;
 const TOTAL_PAGES = 3;
-
-const STATS_CARDS = [
-  { label: "Company", value: "932", icon: <FaBuilding />, bg: "bg-[#4D44B5]" },
-  { label: "User", value: "754", icon: <FaUser />, bg: "bg-[#FB7D5B]" },
-  { label: "Project", value: "40", icon: <FaTasks />, bg: "bg-[#FCC43E]" },
-  {
-    label: "Partner",
-    value: "32k",
-    icon: <FaHandsHelping />,
-    bg: "bg-[#303972]",
-  },
-];
 
 const TABLE_DATA = [
   { name: "Samantha", id: "ID 123456789", grade: "A", amount: "$50,036" },
@@ -127,6 +120,36 @@ const chartOptions = {
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { companies } = useContext(CompanyContext);
+  const { users } = useContext(UserContext);
+  const { employees } = useContext(EmployeeContext);
+  const { partners } = useContext(PartnerContext);
+  const company = (companies || []).length;
+  const employee = (employees || []).length;
+  const partner = (partners || []).length;
+  const user = (users || []).length;
+
+  const STATS_CARDS = [
+    {
+      label: "Company",
+      value: company,
+      icon: <FaBuilding />,
+      bg: "bg-[#4D44B5]",
+    },
+    { label: "User", value: user, icon: <FaUser />, bg: "bg-[#FB7D5B]" },
+    {
+      label: "Employee",
+      value: employee,
+      icon: <FaUserGroup />,
+      bg: "bg-[#FCC43E]",
+    },
+    {
+      label: "Partner",
+      value: partner,
+      icon: <FaHandsHelping />,
+      bg: "bg-[#303972]",
+    },
+  ];
 
   const handleNext = () => {
     if (currentPage < TOTAL_PAGES) setCurrentPage((prev) => prev + 1);

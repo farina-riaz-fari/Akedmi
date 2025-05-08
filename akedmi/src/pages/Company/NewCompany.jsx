@@ -9,17 +9,17 @@ import { FormSelect } from "../../components/Select";
 import { CurrencySelect } from "../../components/CurrencySelect";
 import { DateTimeInput } from "../../components/DateAndTimeDropdown";
 import Button from "../../components/Button";
-// import { UserContext } from "../../store/UserContext";
-// import { PartnerContext } from "../../store/PartnerContext";
-// import { EmployeeContext } from "../../store/EmployeeContext";
+import UserContext from "../../store/UserContext";
+import { PartnerContext } from "../../store/PartnerContext";
+import { EmployeeContext } from "../../store/EmployeeContext";
 
 const NewCompany = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { addCompany, updateCompany } = useContext(CompanyContext);
-  //   const { users } = useContext(UserContext);
-  //   const { partners } = useContext(PartnerContext);
-  //   const { employees } = useContext(EmployeeContext);
+  const { users } = useContext(UserContext);
+  const { partners } = useContext(PartnerContext);
+  const { employees } = useContext(EmployeeContext);
   const companyData = location.state?.company;
   const [formErrors, setFormErrors] = useState({});
 
@@ -343,20 +343,18 @@ const NewCompany = () => {
                   label="Owner"
                   name="owner"
                   options={[
-                    { value: "owner 1", label: "Owner 1" },
-                    { value: "OtherOwner", label: "Other Owner" },
-                    // ...users.map((c) => ({
-                    //   value: c.firstName + " " + c.lastName,
-                    //   label: c.firstName + " " + c.lastName,
-                    // })),
-                    // ...employees.map((e) => ({
-                    //   value: e.first_name + " " + e.last_name,
-                    //   label: e.first_name + " " + e.last_name,
-                    // })),
-                    // ...partners.map((p) => ({
-                    //   value: p.firstName + " " + p.lastName,
-                    //   label: p.firstName + " " + p.lastName,
-                    // })),
+                    ...users.map((c) => ({
+                      value: c.firstName + " " + c.lastName,
+                      label: c.firstName + " " + c.lastName,
+                    })),
+                    ...employees.map((e) => ({
+                      value: e.first_name + " " + e.last_name,
+                      label: e.first_name + " " + e.last_name,
+                    })),
+                    ...partners.map((p) => ({
+                      value: p.firstName + " " + p.lastName,
+                      label: p.firstName + " " + p.lastName,
+                    })),
                   ]}
                   formData={formData}
                   handleChange={handleChange}
