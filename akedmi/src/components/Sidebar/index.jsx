@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { IoMdHeart } from "react-icons/io";
 import { FiHome } from "react-icons/fi";
-import { FaUserGroup } from "react-icons/fa6";
+import { FaGear, FaUserGroup } from "react-icons/fa6";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { AiFillProduct } from "react-icons/ai";
 
@@ -32,6 +32,7 @@ const sidebarItems = [
   { id: 8, icon: <AiFillProduct />, label: "Products", path: "/products" },
   { id: 9, icon: <FaChartBar />, label: "Chart of Account", path: "/chart" },
   { id: 10, icon: <FaMoneyBillAlt />, label: "Payroll", path: "/payroll" },
+  { id: 11, icon: <FaGear />, label: "Settings", path: "/settings" },
 ];
 
 const Sidebar = () => {
